@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
 import Gallery from './components/Gallery'
 import Search from './components/Search'
-import NavBar from './components/NavBar'
+import PageNavBar from './components/PageNavBar'
 
 const App = () => {
   return (
@@ -12,7 +12,7 @@ const App = () => {
     <div className='site-wrapper'>
 
       <BrowserRouter>
-        <NavBar />
+        <PageNavBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/gallery" element={<Gallery />} />
