@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 
+import Error from '../common/Error'
+import Spinner from '../common/Spinner'
 
 // Bootstrap Components
 import Container from 'react-bootstrap/Container'
@@ -14,6 +16,7 @@ import Card from 'react-bootstrap/Card'
 const GalleryIndex = () => {
 
   const [art, setArt] = useState([])
+  const [error, setError] = useState('')
 
   const apiKey = 'ea65da40-779b-43c2-87a7-1bbc03fef7d6&size=100&page=10'
 
@@ -24,7 +27,8 @@ const GalleryIndex = () => {
         setArt(data.records)
         //console.log(data.records)
       } catch (err) {
-        console.log(err)
+        //console.log(err)
+        setError(err.message)
       }
     }
     getArt()
@@ -38,13 +42,13 @@ const GalleryIndex = () => {
           <Col xs="12">
             <h1 className='display-4 mb-4 text-center'>Gallery</h1>
           </Col>
-          {art.length > 0 &&
+          {art.length > 0 ?
             art.filter(art => art.people && art.images && art.images[0] && art.images[0].baseimageurl).map(art => {
               const { id, people: [{ name }], images: [{ baseimageurl }] } = art
-              console.log(id, name, baseimageurl)
+              //console.log(id, name, baseimageurl)
               return (
                 <Col key={id} lg="4" md="6" sm="12" className='art'>
-                  <Link to={`/art/${id}`}>
+                  <Link to={`/gallery/${id}`}>
                     <Card>
                       <div className="card-image" style={{ backgroundImage: `url('${baseimageurl}')` }}></div>
                       <Card.Body>
@@ -55,7 +59,14 @@ const GalleryIndex = () => {
                 </Col>
               )
             })
-          }
+            : (
+              <>
+                {error ?
+                  <Error error={error} />
+                  :
+                  <Spinner />}
+              </>
+            )}
         </Row>
       </Container>
     </main>
