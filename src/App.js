@@ -2,7 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 // Components
 import Home from './components/Home'
-import Gallery from './components/Gallery'
+import GalleryIndex from './components/GalleryIndex'
+import GallerySingle from './components/GallerySingle'
 import Search from './components/Search'
 import PageNavBar from './components/PageNavBar'
 
@@ -15,7 +16,8 @@ const App = () => {
         <PageNavBar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/gallery" element={<GalleryIndex />} />
+          <Route path="/gallery/:galleryId" element={<GallerySingle />} />
           <Route path="/search" element={<Search />} />
         </Routes>
         <footer>&copy; Made by Rossana & Eunyeong</footer>
