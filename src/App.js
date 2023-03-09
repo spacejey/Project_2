@@ -22,6 +22,7 @@ const App = () => {
         </Routes>
         <footer>&copy; Made by Rossana & Eunyeong</footer>
       </BrowserRouter>
+
     </div>
   )
 }
