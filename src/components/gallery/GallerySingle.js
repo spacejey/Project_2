@@ -13,7 +13,7 @@ const GallerySingle = () => {
 
   const [art, setArt] = useState(null)
 
-  const apiKey = 'ea65da40-779b-43c2-87a7-1bbc03fef7d6&size=100&page=10'
+  // const apiKey = 'ea65da40-779b-43c2-87a7-1bbc03fef7d6&size=100&page=10'
 
   const { objectid } = useParams()
   //console.log(objectid)
