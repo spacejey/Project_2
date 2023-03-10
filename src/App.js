@@ -17,9 +17,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/gallery" element={<GalleryIndex />} />
           <Route path="/gallery/:id" element={<GallerySingle />} />
-
         </Routes>
-        <footer>&copy; Made by Rossana & Eunyeong</footer>
+        <footer className='footer'>&copy; Made by Rossana & Eunyeong</footer>
       </BrowserRouter>
 
     </div>

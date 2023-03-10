@@ -23,7 +23,7 @@ const GallerySingle = () => {
       try {
         const { data } = await axios.get(`https://api.harvardartmuseums.org/object?apikey=${apiKey}/gallery/${id}`)
         setArt(data.records)
-        console.log(data.records)
+        //console.log(data.records)
       } catch (err) {
         console.log(err)
       }
@@ -40,10 +40,10 @@ const GallerySingle = () => {
           {art &&
             <>
               <Col xs="12">
-                <h1 className='display-6 mb-4'>{art.people[name]}</h1>
+                <h1 className='display-6 mb-4'>{art.name}</h1>
               </Col>
               <Col md="6">
-                <img key={id} src={art.images.baseimageurl} alt="" />
+                <img key={id} src={art.baseimageurl} alt="" />
               </Col>
               <Col md="6">
                 <h4></h4>

@@ -40,7 +40,7 @@ const GalleryIndex = () => {
       <Container>
         <Row>
           <Col xs="12">
-            <h1 className='display-4 mb-4 text-center'>Gallery</h1>
+            <h1 id='title' className='display-4 mt-4 mb-5 text-center'>Gallery</h1>
           </Col>
           {art.length > 0 ?
             art.filter(art => art.people && art.images && art.images[0] && art.images[0].baseimageurl).map(art => {
