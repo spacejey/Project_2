@@ -21,7 +21,7 @@ const GallerySingle = () => {
   useEffect(() => {
     const getArt = async () => {
       try {
-        const { data } = await axios.get(`https://api.harvardartmuseums.org/object/${objectid}?apikey=${apiKey}`)
+        const { data } = await axios.get(`https://api.harvardartmuseums.org/object/${objectid}?apikey=${process.env.REACT_APP_API_KEY}`)
         setArt(data)
         //console.log(data)
       } catch (err) {

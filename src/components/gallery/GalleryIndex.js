@@ -18,12 +18,12 @@ const GalleryIndex = () => {
   const [art, setArt] = useState([])
   const [error, setError] = useState('')
 
-  const apiKey = 'ea65da40-779b-43c2-87a7-1bbc03fef7d6&size=100&page=10'
+
 
   useEffect(() => {
     const getArt = async () => {
       try {
-        const { data } = await axios.get(`https://api.harvardartmuseums.org/object?apikey=${apiKey}`)
+        const { data } = await axios.get(`https://api.harvardartmuseums.org/object?apikey=${process.env.REACT_APP_API_KEY}&size=100&page=10`)
         setArt(data.records)
         //console.log(data.records)
       } catch (err) {
