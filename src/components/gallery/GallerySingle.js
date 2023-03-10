@@ -15,22 +15,21 @@ const GallerySingle = () => {
 
   const apiKey = 'ea65da40-779b-43c2-87a7-1bbc03fef7d6&size=100&page=10'
 
-  const { id } = useParams()
-  console.log(id)
+  const { objectid } = useParams()
+  console.log(objectid)
 
   useEffect(() => {
     const getArt = async () => {
       try {
-        const { data } = await axios.get(`https://api.harvardartmuseums.org/object?apikey=${apiKey}/gallery/${id}`)
-        setArt(data.records)
-        //console.log(data.records)
+        const { data } = await axios.get(`https://api.harvardartmuseums.org/object/${objectid}?apikey=${apiKey}`)
+        setArt(data)
+        console.log(data)
       } catch (err) {
         console.log(err)
       }
     }
     getArt()
-  }, [id])
-
+  }, [objectid])
 
 
   return (
@@ -40,14 +39,12 @@ const GallerySingle = () => {
           {art &&
             <>
               <Col xs="12">
-                <h1 className='display-6 mb-4'>{art.name}</h1>
+                <h1 className='singleName' >{art.people[0].name}</h1>
+                <p className='singleInfo' >{art.people[0].culture}-{art.people[0].displaydate}</p>
               </Col>
               <Col md="6">
-                <img key={id} src={art.baseimageurl} alt="" />
-              </Col>
-              <Col md="6">
-                <h4></h4>
-                <p></p>
+                <img className='singleImage' src={art.images[0].baseimageurl} alt={art.people[0].name} />
+                <p className='singeTitle' >{art.title}</p>
               </Col>
             </>
           }

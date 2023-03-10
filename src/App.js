@@ -16,7 +16,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/gallery" element={<GalleryIndex />} />
-          <Route path="/gallery/:id" element={<GallerySingle />} />
+          <Route path="/gallery/:objectid" element={<GallerySingle />} />
         </Routes>
         <footer className='footer'>&copy; Made by Rossana & Eunyeong</footer>
       </BrowserRouter>
