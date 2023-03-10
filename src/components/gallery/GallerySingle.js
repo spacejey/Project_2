@@ -16,14 +16,14 @@ const GallerySingle = () => {
   const apiKey = 'ea65da40-779b-43c2-87a7-1bbc03fef7d6&size=100&page=10'
 
   const { objectid } = useParams()
-  console.log(objectid)
+  //console.log(objectid)
 
   useEffect(() => {
     const getArt = async () => {
       try {
         const { data } = await axios.get(`https://api.harvardartmuseums.org/object/${objectid}?apikey=${apiKey}`)
         setArt(data)
-        console.log(data)
+        //console.log(data)
       } catch (err) {
         console.log(err)
       }
@@ -36,15 +36,19 @@ const GallerySingle = () => {
     <main>
       <Container>
         <Row>
+          <Col xs="12">
+            <h1 id='title' className='display-4 mt-4 mb-5 text-center'>Gallery</h1>
+          </Col>
           {art &&
             <>
-              <Col xs="12">
-                <h1 className='singleName' >{art.people[0].name}</h1>
-                <p className='singleInfo' >{art.people[0].culture}-{art.people[0].displaydate}</p>
-              </Col>
-              <Col md="6">
+              <Col>
                 <img className='singleImage' src={art.images[0].baseimageurl} alt={art.people[0].name} />
-                <p className='singeTitle' >{art.title}</p>
+              </Col>
+              <Col md="6" className='singleText mt-3 col-md-6'>
+                <h4 className='display-6'>{art.people[0].name}, </h4>
+                <p className='display-7'> {art.people[0].culture} {art.people[0].displaydate}</p>
+                <hr /><br />
+                <p className='singleTitle' >{art.title}</p>
               </Col>
             </>
           }

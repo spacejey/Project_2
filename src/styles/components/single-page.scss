@@ -1,0 +1,24 @@
+section {
+  @extend %flex-center;
+  height: 85vh;
+
+  .singleName {
+    font-weight: 500;
+  }
+
+  .singleText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: end;
+    margin-left: 50px;
+  }
+}
+
+.singleImage {
+  width: 700px;
+}
+
+img {
+  max-width: 100%;
+}
