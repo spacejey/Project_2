@@ -22,7 +22,7 @@ const GalleryIndex = () => {
   useEffect(() => {
     const getArt = async () => {
       try {
-        const { data } = await axios.get(`https://api.harvardartmuseums.org/object?apikey=${process.env.REACT_APP_API_KEY}&size=100&page=10`)
+        const { data } = await axios.get(`https://api.harvardartmuseums.org/object?apikey=${process.env.REACT_APP_API_KEY}&size=1000&page=100`)
         setArt(data.records)
         console.log(data.records)
       } catch (err) {
