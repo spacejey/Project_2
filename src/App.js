@@ -6,10 +6,7 @@ import GalleryIndex from './components/gallery/GalleryIndex'
 import GallerySingle from './components/gallery/GallerySingle'
 import PageNavBar from './components/common/PageNavBar'
 
-
 const App = () => {
-
-
 
   return (
 

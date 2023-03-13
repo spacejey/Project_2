@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import placeholder from '../../images/placeholder.png'
 
 
 // Bootstrap
@@ -42,7 +43,7 @@ const GallerySingle = () => {
           {art &&
             <>
               <Col>
-                <img className='singleImage' src={art.images[0].baseimageurl} alt={art.people[0].name} />
+                <img className='singleImage' src={art.images[0] && art.images[0].baseimageurl ? art.images[0].baseimageurl : placeholder} alt={art.people[0].name} />
               </Col>
               <Col md="6" className='singleText mt-3 col-md-6'>
                 <h4 className='display-6'>{art.people[0].name}, </h4>
