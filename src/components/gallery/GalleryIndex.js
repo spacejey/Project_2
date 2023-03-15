@@ -52,7 +52,7 @@ const GalleryIndex = () => {
                 <Col key={id} lg="4" md="6" sm="12" className='art'>
                   <Link to={`/gallery/${id}`}>
                     <Card>
-                      <div className="card-image" style={{ backgroundImage: `url('${images[0] && images[0].baseimageurl ? images[0].baseimageurl : placeholder}')` }}></div>
+                      <div className="card-image" style={{ backgroundImage: `url('${images && images[0].baseimageurl ? images[0].baseimageurl : placeholder}')` }}></div>
                       <Card.Body>
                         <Card.Text>{people[0].name}</Card.Text>
                       </Card.Body>
